@@ -2,13 +2,12 @@ import * as Phaser from 'phaser';
 import Scenes from './scenes';
 
 const gameConfig: Phaser.Types.Core.GameConfig = {
-  title: 'Sample',
-
+  title: 'Firstgame in TS',
   type: Phaser.AUTO,
 
   scale: {
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 800,
+    height: 600,
   },
 
   scene: Scenes,
@@ -16,7 +15,8 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
   physics: {
     default: 'arcade',
     arcade: {
-      debug: true,
+      gravity: {y:300},
+      debug: false
     },
   },
 
@@ -25,7 +25,3 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
 };
 
 export const game = new Phaser.Game(gameConfig);
-
-window.addEventListener('resize', () => {
-  game.scale.refresh();
-});
